@@ -37,12 +37,14 @@ let pluImages = [ //Put images of vegetables later lol /0=banana, 1=apple, 2=her
 
 function selectPlu() {
   let selectedCategory = Math.floor(Math.random()*(pluName.length)); //Selects type of produce (banana, apple, herb)
-  let selectedSubCategory = Math.floor(Math.random()*(pluName.length)); //Selects type of banana/apple/herb since this is a two-dimensional array
+  let selectedSubCategory = Math.floor(Math.random()*(pluName[selectedCategory].length)); //Selects type of banana/apple/herb since this is a two-dimensional array
   console.log(selectedCategory);
   console.log(selectedSubCategory)
 
   console.log("0 = bananas, 1= apples, 2=herbs");
-  console.log("The selected produce item is: " + pluName[selectedCategory][selectedSubCategory]);
+  console.log("The selected produce item is: " + pluName[selectedCategory][selectedSubCategory] + " The PLU is: " + pluNums[selectedCategory][selectedSubCategory]);
+
+  return pluName[selectedCategory][selectedSubCategory];
 }
 
 console.log("hi");
@@ -50,9 +52,9 @@ selectPlu();
 
 function checkPlu() {
   let givenPLU = document.forms["pluTest"]["plu"].value
-  if (givenPLU == "4011") {
-    alert("Bananas!")
+  if (givenPLU == pluNums[selectedCategory][selectedSubCategory]) {
+    alert(pluName[selectedCategory][selectedSubCategory])
   } else {
-    alert("Idk what this is")
+    alert("WRONG!!1111111!")
   }
 }
