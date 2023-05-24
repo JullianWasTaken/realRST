@@ -31,8 +31,13 @@ let pluImages = [ //Put images of vegetables later lol /0=banana, 1=apple, 2=her
 
 ];
 
+let givenPLU = document.forms["pluTest"]["plu"].value
+let selectedCategory; //silyl you, forgot to make these global scope
+let selectedSubCategory;
 
-let quiz = document.getElementById("change");
+//let quiz = document.getElementById("change");
+let correctScore = 0;
+let wrongScore = 0;
 
 //MAINFRAME!
 
@@ -41,8 +46,8 @@ let quiz = document.getElementById("change");
 //document.getElementById("change").innterHTML = "Hey";
 
 function selectPlu() {
-  let selectedCategory = Math.floor(Math.random()*(pluName.length)); //Selects type of produce (banana, apple, herb)
-  let selectedSubCategory = Math.floor(Math.random()*(pluName[selectedCategory].length)); //Selects type of banana/apple/herb since this is a two-dimensional array
+  selectedCategory = Math.floor(Math.random()*(pluName.length)); //Selects type of produce (banana, apple, herb)
+  selectedSubCategory = Math.floor(Math.random()*(pluName[selectedCategory].length)); //Selects type of banana/apple/herb since this is a two-dimensional array
   console.log(selectedCategory);
   console.log(selectedSubCategory);
 
@@ -54,13 +59,22 @@ function selectPlu() {
   return pluName[selectedCategory][selectedSubCategory];
 }
 
-selectPlu();
+//selectPlu();
+
+function work() {
+  alert("HELLO!");
+}
 
 function checkPlu() {
-  let givenPLU = document.forms["pluTest"]["plu"].value
-  if (givenPLU === pluNums[selectedCategory][selectedSubCategory]) {
-    alert(pluName[selectedCategory][selectedSubCategory]);
+ givenPLU = document.forms["pluTest"]["plu"].value;
+  alert("Nothing detected");
+  if (givenPLU == pluNums[selectedCategory][selectedSubCategory]) {
+    correctScore++;
+    alert("Right");
+    document.getElementById("rightCounter").innerHTML = ("Your current score is: " + correctScore);
   } else {
-    alert("WRONG!!1111111!");
+    wrongScore--;
+    alert("Wrong");
+    document.getElementById("wrongCounter").innerHTML = ("Your incorrect items are: " + wrongScore);
   }
 }

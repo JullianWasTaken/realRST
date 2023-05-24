@@ -17,11 +17,14 @@
 <h2 id="change">This text will change</h2>
 
 
-<form name="pluTest" onsubmit="return checkPlu()" method="post">
+<!--<form name="pluTest" onsubmit="return checkPlu()" method="post">-->
 <input type="text" name="plu">
-<input type="submit" value="Check if I'm right!">
-<h2 id="score">Your current score is: 0</h2>
-</form>
+<!--  Why did you even add this?? <input type="submit" value="Check if I'm right!">-->
+<button onclick="checkPlu()">Check if I'm right!</button>
+<button onclick="work()">Hello!</button>
+<h2 id="rightCounter">Your current score is: 0</h2>
+<h2 id="wrongCounter">Your incorrect items are: 0</h2> <!--Maybe add a list after to see what you got wrong and the corrections?-->
+<!--</form>-->
 
 
 
