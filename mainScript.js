@@ -11,13 +11,13 @@ function sus() {
     } 
 }*/
 
+//Global scope variables
 
 let pluName = [ //0=banana, 1=apple, 2=herbs
 ["banana", "organic banana"],
 ["gala apple", "honeycrisp apple", "granny smith apple", "macintosh apple"],
 ["regular parsley", "curley parsley", "coriander/cilantro", "mint", "dill"]
 ];
-
 let pluNums = [ //0=banana, 1=apple, 2=herbs
 ["4011", "94011"],
 ["4135", "3283", "4139", "4152"],
@@ -31,30 +31,36 @@ let pluImages = [ //Put images of vegetables later lol /0=banana, 1=apple, 2=her
 
 ];
 
+
+let quiz = document.getElementById("change");
+
+//MAINFRAME!
+
 //RNG Select
 
-
+//document.getElementById("change").innterHTML = "Hey";
 
 function selectPlu() {
   let selectedCategory = Math.floor(Math.random()*(pluName.length)); //Selects type of produce (banana, apple, herb)
   let selectedSubCategory = Math.floor(Math.random()*(pluName[selectedCategory].length)); //Selects type of banana/apple/herb since this is a two-dimensional array
   console.log(selectedCategory);
-  console.log(selectedSubCategory)
+  console.log(selectedSubCategory);
 
   console.log("0 = bananas, 1= apples, 2=herbs");
   console.log("The selected produce item is: " + pluName[selectedCategory][selectedSubCategory] + " The PLU is: " + pluNums[selectedCategory][selectedSubCategory]);
 
+  document.getElementById("change").innerHTML = ("Your selected produce item is: " + pluName[selectedCategory][selectedSubCategory]);
+
   return pluName[selectedCategory][selectedSubCategory];
 }
 
-console.log("hi");
 selectPlu();
 
 function checkPlu() {
   let givenPLU = document.forms["pluTest"]["plu"].value
-  if (givenPLU == pluNums[selectedCategory][selectedSubCategory]) {
-    alert(pluName[selectedCategory][selectedSubCategory])
+  if (givenPLU === pluNums[selectedCategory][selectedSubCategory]) {
+    alert(pluName[selectedCategory][selectedSubCategory]);
   } else {
-    alert("WRONG!!1111111!")
+    alert("WRONG!!1111111!");
   }
 }

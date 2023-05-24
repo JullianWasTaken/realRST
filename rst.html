@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
     <title>ICS4U</title>
+    <script src="mainScript.js"></script>
+    <script defer src="/mainScript.js"></script>
 </head>
 
-<script src="mainScript.js"></script>
 <body>
 
 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Farm_Boy_logo.svg/1200px-Farm_Boy_logo.svg.png" width="200 height="200" alt="logo">
 
 <h1>Enter the Price Look Up code (PLU) for the vegetable</h1>
-<h2>return selectPlu()</h2>
+<button onclick="selectPlu()">Click me</button>
+<h2 id="change">This text will change</h2>
+
 
 <form name="pluTest" onsubmit="return checkPlu()" method="post">
 <input type="text" name="plu">
 <input type="submit" value="Check if I'm right!">
+<h2 id="score">Your current score is: 0</h2>
 </form>
 
 
