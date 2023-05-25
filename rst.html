@@ -13,20 +13,27 @@
 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Farm_Boy_logo.svg/1200px-Farm_Boy_logo.svg.png" width="200 height="200" alt="logo">
 
 <h1>Enter the Price Look Up code (PLU) for the vegetable</h1>
-<button onclick="selectPlu()">Click me</button>
-<h2 id="change">This text will change</h2>
+    <button onclick="selectPlu()">Choose a produce item!</button>
+<h2 id="change">This text will change when you click the button above.</h2>
 
 
 <!--<form name="pluTest" onsubmit="return checkPlu()" method="post">-->
-<input type="text" name="plu">
+<!--<input type="text" name="plu">-->
 <!--  Why did you even add this?? <input type="submit" value="Check if I'm right!">-->
-<button onclick="checkPlu()">Check if I'm right!</button>
-<button onclick="work()">Hello!</button>
-<h2 id="rightCounter">Your current score is: 0</h2>
-<h2 id="wrongCounter">Your incorrect items are: 0</h2> <!--Maybe add a list after to see what you got wrong and the corrections?-->
+<!--<button onclick="checkPlu()">Check if I'm right!</button>-->
+
+
+<form name="pluTest" onsubmit="checkPlu();return false;" method="post"> <!--return false fixes page refresh after submit-- took me 30 mins to find solution...-->
+    <input type="number" name="plu" required><br>
+    <input type="submit" value="Check if I'm right!">
+    </form>
+
+<br>
+<h2 id="rightCounter">Your amount of correct items: 0</h2>
+<h2 id="wrongCounter">Your amount of incorrect items are: 0</h2> <!--Maybe add a list after to see what you got wrong and the corrections?-->
 <!--</form>-->
 
-
+<img id="pluImage" src="">
 
 
 

@@ -31,7 +31,7 @@ let pluImages = [ //Put images of vegetables later lol /0=banana, 1=apple, 2=her
 
 ];
 
-let givenPLU = document.forms["pluTest"]["plu"].value
+//let givenPLU = document.forms["pluTest"]["plu"].value
 let selectedCategory; //silyl you, forgot to make these global scope
 let selectedSubCategory;
 
@@ -45,7 +45,7 @@ let wrongScore = 0;
 
 //document.getElementById("change").innterHTML = "Hey";
 
-function selectPlu() {
+/*function selectPlu() {
   selectedCategory = Math.floor(Math.random()*(pluName.length)); //Selects type of produce (banana, apple, herb)
   selectedSubCategory = Math.floor(Math.random()*(pluName[selectedCategory].length)); //Selects type of banana/apple/herb since this is a two-dimensional array
   console.log(selectedCategory);
@@ -57,24 +57,36 @@ function selectPlu() {
   document.getElementById("change").innerHTML = ("Your selected produce item is: " + pluName[selectedCategory][selectedSubCategory]);
 
   return pluName[selectedCategory][selectedSubCategory];
+}*/
+
+function selectPlu() {
+   selectedCategory = Math.floor(Math.random() * pluName.length);
+   selectedSubCategory = Math.floor(Math.random() * pluName[selectedCategory].length);
+
+  console.log(selectedCategory);
+  console.log(selectedSubCategory);
+
+  console.log("0 = bananas, 1= apples, 2=herbs");
+  console.log("The selected produce item is: " + pluName[selectedCategory][selectedSubCategory] + " The PLU is: " + pluNums[selectedCategory][selectedSubCategory]);
+
+  document.getElementById("change").innerHTML = "Your selected produce item is: " + pluName[selectedCategory][selectedSubCategory];
+  document.getElementById("pluImage").src = pluImages[selectedCategory][selectedSubCategory];
+
+  return pluName[selectedCategory][selectedSubCategory];
 }
+
 
 //selectPlu();
 
-function work() {
-  alert("HELLO!");
-}
-
 function checkPlu() {
- givenPLU = document.forms["pluTest"]["plu"].value;
-  alert("Nothing detected");
+ let givenPLU = document.forms["pluTest"]["plu"].value;
   if (givenPLU == pluNums[selectedCategory][selectedSubCategory]) {
     correctScore++;
-    alert("Right");
-    document.getElementById("rightCounter").innerHTML = ("Your current score is: " + correctScore);
+    document.getElementById("rightCounter").innerHTML = ("Your amount of correct items: " + correctScore);
   } else {
-    wrongScore--;
-    alert("Wrong");
-    document.getElementById("wrongCounter").innerHTML = ("Your incorrect items are: " + wrongScore);
+    wrongScore++;
+    document.getElementById("wrongCounter").innerHTML = ("Your amount of incorrect items are: " + wrongScore);
   }
+
+ // return false;
 }
