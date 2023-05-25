@@ -38,6 +38,7 @@ let selectedSubCategory;
 //let quiz = document.getElementById("change");
 let correctScore = 0;
 let wrongScore = 0;
+let isStarterDeleted = false; //Delete the start button
 
 //MAINFRAME!
 
@@ -72,6 +73,10 @@ function selectPlu() {
   document.getElementById("change").innerHTML = "Your selected produce item is: " + pluName[selectedCategory][selectedSubCategory];
   document.getElementById("pluImage").src = pluImages[selectedCategory][selectedSubCategory];
 
+ /* if (!(isStarterDeleted)) {
+    document.getElementById("deleteMe").remove();
+  }*/
+
   return pluName[selectedCategory][selectedSubCategory];
 }
 
@@ -83,6 +88,8 @@ function checkPlu() {
   if (givenPLU == pluNums[selectedCategory][selectedSubCategory]) {
     correctScore++;
     document.getElementById("rightCounter").innerHTML = ("Your amount of correct items: " + correctScore);
+   // selectPlu();
+
   } else {
     wrongScore++;
     document.getElementById("wrongCounter").innerHTML = ("Your amount of incorrect items are: " + wrongScore);
