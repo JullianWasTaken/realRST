@@ -1,10 +1,7 @@
-p {
-    background-image: url('https://i.ibb.co/30mD3wd/Screenshot-2023-05-25-123428.png');
-}
-
 body {
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
+    background-color: #e7d2a1;
 }
 
 .pluImage {

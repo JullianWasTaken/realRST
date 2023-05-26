@@ -83,6 +83,11 @@ function selectPlu() {
 
 //selectPlu();
 
+
+
+
+
+
 function checkPlu() {
  let givenPLU = document.forms["pluTest"]["plu"].value;
   if (givenPLU == pluNums[selectedCategory][selectedSubCategory]) {
@@ -93,7 +98,15 @@ function checkPlu() {
   } else {
     wrongScore++;
     document.getElementById("wrongCounter").innerHTML = ("Your amount of incorrect items are: " + wrongScore);
+    if (wrongScore = 3) {
+    document.getElementById("logo").src = "https://media.tenor.com/SFCE2JH68XYAAAAC/fnaf4-fred-bear.gif";
+    document.getElementById("logo").style.width = "100%";
+    document.getElementById("logo").style.height = "100%";
+    /*document.getElementById("logo").src = "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Farm_Boy_logo.svg/1200px-Farm_Boy_logo.svg.png";
+    document.getElementById("logo").style.width = "20%";
+    document.getElementById("logo").style.height = "20%";*/
+    }
   }
 
- // return false;
+  return false;
 }
