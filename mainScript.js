@@ -39,6 +39,7 @@ let selectedSubCategory;
 let correctScore = 0;
 let wrongScore = 0;
 let isStarterDeleted = false; //Delete the start button
+let haveISelected = false;
 
 //MAINFRAME!
 
@@ -77,7 +78,12 @@ function selectPlu() {
     document.getElementById("deleteMe").remove();
   }*/
 
+
+  haveISelected = true;
+
+
   return pluName[selectedCategory][selectedSubCategory];
+
 }
 
 
@@ -90,12 +96,15 @@ function selectPlu() {
 
 function checkPlu() {
  let givenPLU = document.forms["pluTest"]["plu"].value;
-  if (givenPLU == pluNums[selectedCategory][selectedSubCategory]) {
+  if ((givenPLU == pluNums[selectedCategory][selectedSubCategory]) && (haveISelected)) {
     correctScore++;
     document.getElementById("rightCounter").innerHTML = ("Your amount of correct items: " + correctScore);
    // selectPlu();
 
-  } else {
+  } else if (!(haveISelected)) {
+    alert("You have to click the start button first dummy");
+  }
+   else {
     wrongScore++;
     document.getElementById("wrongCounter").innerHTML = ("Your amount of incorrect items are: " + wrongScore);
     if (wrongScore = 3) {

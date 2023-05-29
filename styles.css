@@ -1,6 +1,9 @@
-body {
+.centerInfo {
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
+}
+
+body {
     background-color: #e7d2a1;
 }
 
