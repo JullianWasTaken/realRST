@@ -74,9 +74,6 @@ function selectPlu() {
   document.getElementById("change").innerHTML = "Your selected produce item is: " + pluName[selectedCategory][selectedSubCategory];
   document.getElementById("pluImage").src = pluImages[selectedCategory][selectedSubCategory];
 
- /* if (!(isStarterDeleted)) {
-    document.getElementById("deleteMe").remove();
-  }*/
 
 
   haveISelected = true;
@@ -99,8 +96,12 @@ function checkPlu() {
   if ((givenPLU == pluNums[selectedCategory][selectedSubCategory]) && (haveISelected)) {
     correctScore++;
     document.getElementById("rightCounter").innerHTML = ("Your amount of correct items: " + correctScore);
-   // selectPlu();
-
+    if (!(isStarterDeleted)) {
+      document.getElementById("deleteMe").remove("deleteMe");
+      isStarterDeleted = true;
+    }
+    selectPlu();
+    document.forms["pluTest"]["plu"].value = "";
   } else if (!(haveISelected)) {
     alert("You have to click the start button first dummy");
   }
@@ -116,6 +117,7 @@ function checkPlu() {
     document.getElementById("logo").style.height = "20%";*/
     }
   }
+
 
   return false;
 }

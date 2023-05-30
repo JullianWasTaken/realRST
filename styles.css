@@ -8,6 +8,6 @@ body {
 }
 
 .pluImage {
-        width:50%;
-        max-width:300px;
+    transform: scale(0.5);
+
 }
