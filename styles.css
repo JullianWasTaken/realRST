@@ -11,3 +11,7 @@ body {
     transform: scale(0.5);
 
 }
+
+.navi {
+    text-align: left;
+}
