@@ -1,6 +1,9 @@
 .centerInfo {
-    font-family: 'Courier New', Courier, monospace;
     text-align: center;
+}
+
+* {
+    font-family: 'Arial', Courier, monospace;
 }
 
 body {
@@ -9,14 +12,24 @@ body {
 
 .pluImage {
     transform: scale(0.5);
-
 }
 
 .navi {
     text-align: left;
 }
 
-table, th, td {
-    border:1px solid black;
+.table {
+    width: 50%; /* Adjust the width as needed */
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
     text-align: center;
-  }
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
