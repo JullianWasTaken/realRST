@@ -87,11 +87,11 @@ function selectPlu() {
 //selectPlu();
 
 
-
-
+//Thanks jad
 
 
 function checkPlu() {
+  let timer = 1;
  let givenPLU = document.forms["pluTest"]["plu"].value;
   if ((givenPLU == pluNums[selectedCategory][selectedSubCategory]) && (haveISelected)) {
     correctScore++;
@@ -108,14 +108,31 @@ function checkPlu() {
    else {
     wrongScore++;
     document.getElementById("wrongCounter").innerHTML = ("Your amount of incorrect items are: " + wrongScore);
-    if (wrongScore = 3) {
-    document.getElementById("logo").src = "https://media.tenor.com/SFCE2JH68XYAAAAC/fnaf4-fred-bear.gif";
-    document.getElementById("logo").style.width = "100%";
-    document.getElementById("logo").style.height = "100%";
+    if (wrongScore >= 1) { //The cause to my life problems --> 
+    const countDownTimer = setInterval(function () {
+      if (timer > 0) {
+        
+        document.getElementById("logo").src = "https://media.tenor.com/SFCE2JH68XYAAAAC/fnaf4-fred-bear.gif";
+        document.getElementById("logo").style.width = "100%";
+        document.getElementById("logo").style.height = "100%";
+      } else if (timer <= 0) {
+        document.getElementById("logo").src = "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Farm_Boy_logo.svg/1200px-Farm_Boy_logo.svg.png"
+        document.getElementById("logo").style.width = "10%";
+        document.getElementById("logo").style.height = "10%";
+
+        clearInterval(countDownTimer);
+
+      }
+
+      timer--;
+
+    }, 1000)
     /*document.getElementById("logo").src = "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Farm_Boy_logo.svg/1200px-Farm_Boy_logo.svg.png";
     document.getElementById("logo").style.width = "20%";
     document.getElementById("logo").style.height = "20%";*/
     }
+
+    alert("The produce item was: " + pluName[selectedCategory][selectedSubCategory] + " and the code was: " + pluNums[selectedCategory][selectedSubCategory] + ". \n\nYou will now get punished for getting the item wrong." )
   }
 
 
