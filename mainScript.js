@@ -34,6 +34,7 @@ let selectedCategory; //silyl you, forgot to make these global scope
 let selectedSubCategory;
 //let quiz = document.getElementById("change");
 let correctScore = 0;
+
 let wrongScore = 0;
 let isStarterDeleted = false; //Delete the start button
 let haveISelected = false; //Checks if the user has clicked the start game button, comes into use later on (deletes the "Start" button)
@@ -77,6 +78,7 @@ function checkPlu() {
  //User is right
   if ((givenPLU == pluNums[selectedCategory][selectedSubCategory]) && (haveISelected) || (givenPLU == "6969")) {
     correctScore++; //Inc right score
+    keepTrack(1);
     document.getElementById("rightCounter").innerHTML = ("Your amount of correct items: " + correctScore);
 
     //Checks if the "Click me to start" is clicked, if it is, self delete
@@ -97,6 +99,7 @@ function checkPlu() {
   //User is wrong
    else {
     wrongScore++; //increase wrong score
+    keepTrack(0);
     document.getElementById("wrongCounter").innerHTML = ("Your amount of incorrect items are: " + wrongScore);
  
     //JUMPSCARE CODE (Credits to Jad for help with the timer)
@@ -136,7 +139,23 @@ function checkPlu() {
   return false; //so the page doesn't reload upon input
 }
 
+//Keep track of right/wrong items
+
+function keepTrack(answerState) {
+
+  //If item is right
+  if (answerState == 1) { //User is correct
+    console.log("right: " + pluNums[selectedCategory][selectedSubCategory] + pluName[selectedCategory][selectedSubCategory]);
+  } else {
+    console.log("wrong: " + pluNums[selectedCategory][selectedSubCategory] + pluName[selectedCategory][selectedSubCategory]);
+  }
+
+}
+
+
 //Defunct code below
+//Yep solved my life problems by installing node.js and running SET PATH=C:\Program Files\Nodejs;%PATH%
+//in console
 
 /*function selectPlu() {
   selectedCategory = Math.floor(Math.random()*(pluName.length)); //Selects type of produce (banana, apple, herb)
