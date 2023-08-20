@@ -139,19 +139,60 @@ function checkPlu() {
   return false; //so the page doesn't reload upon input
 }
 
+
+
+
+//DEBUGGING Functions included below (debug())
 //Keep track of right/wrong items
 
-function keepTrack(answerState) {
 
-  //If item is right
-  if (answerState == 1) { //User is correct
-    console.log("right: " + pluNums[selectedCategory][selectedSubCategory] + pluName[selectedCategory][selectedSubCategory]);
+//Lets get the keepTrack fn working
+function debug(arr) {
+
+
+  selectedCategory = 0; //Banana
+  selectedSubCategory = 0; //Regular banana, 4011
+
+  //selectPlu;
+  //checkPlu;
+
+  if (arr==1) {
+    keepTrack(1);
   } else {
-    console.log("wrong: " + pluNums[selectedCategory][selectedSubCategory] + pluName[selectedCategory][selectedSubCategory]);
+    keepTrack(2);
   }
 
 }
 
+
+//Instead of storing individual items, we will store their array positions of selectedCategory and
+//-selectedSubCategory and will just grab those from the primary arrays at the start
+let correctItems = [[], []];
+let incorrectItems = [];
+
+function keepTrack(answerState) {
+
+  //If user is right
+  if (answerState == 1) { //User is correct
+    console.log("right: " + pluNums[selectedCategory][selectedSubCategory] + pluName[selectedCategory][selectedSubCategory]);
+
+    //Put item locations into correct array
+    correctItems.unshift()
+
+
+  } else {
+
+
+    console.log("wrong: " + pluNums[selectedCategory][selectedSubCategory] + pluName[selectedCategory][selectedSubCategory]);
+  }
+
+
+
+
+}
+
+//Testing the debugging functions
+debug(1);
 
 //Defunct code below
 //Yep solved my life problems by installing node.js and running SET PATH=C:\Program Files\Nodejs;%PATH%
