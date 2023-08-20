@@ -167,8 +167,10 @@ function debug(arr) {
 
 //Instead of storing individual items, we will store their array positions of selectedCategory and
 //-selectedSubCategory and will just grab those from the primary arrays at the start
-let correctItems = [[], []];
-let incorrectItems = [];
+let correctItemsSelectedCategory = [];
+let correctItemsSelecetedSubCategory = [];
+let incorrectItemsSelectedCateory = [];
+let incorrectItemsSelecetedSubCategory = [];
 
 function keepTrack(answerState) {
 
@@ -177,8 +179,8 @@ function keepTrack(answerState) {
     console.log("right: " + pluNums[selectedCategory][selectedSubCategory] + pluName[selectedCategory][selectedSubCategory]);
 
     //Put item locations into correct array
-    correctItems.unshift()
-
+    correctItemsSelectedCategory.unshift(indexOf(pluNums[selectedCategory]));
+    correctItemsSelecetedSubCategory.unshift(indexOf(pluNums[selectedSubCategory]));
 
   } else {
 
