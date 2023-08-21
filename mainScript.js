@@ -184,6 +184,7 @@ function keepTrack(answerState) {
 
   } else {
 
+    incorrectItemsSelectedCateory.unshift(indexOf(selectedc))
 
     console.log("wrong: " + pluNums[selectedCategory][selectedSubCategory] + pluName[selectedCategory][selectedSubCategory]);
   }
